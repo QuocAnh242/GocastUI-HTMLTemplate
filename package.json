@@ -1,0 +1,25 @@
+{
+  "name": "gocastui",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "pug": "pug -w index.pug -o ./ -P -b views",
+    "sass": "sass --watch sass/main.scss:styles/main.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/QuocAnh242/GocastUI.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/QuocAnh242/GocastUI/issues"
+  },
+  "homepage": "https://github.com/QuocAnh242/GocastUI#readme",
+  "devDependencies": {
+    "pug-cli": "^1.0.0-alpha6",
+    "sass": "^1.104.0"
+  }
+}

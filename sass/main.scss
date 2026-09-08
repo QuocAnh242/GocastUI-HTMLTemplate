@@ -1,11 +1,11 @@
-@import "./abstracts/variables";
-@import "./abstracts/mixins";
+@use "./abstracts/variables";
+@use "./abstracts/mixins";
 
-@import "./base/general";
-@import "./base/reset";
-@import "./base/typography";
+@use "./base/reset";
+@use "./base/typography";
+@use "./base/general";
 
-@import "./layout/sidebar";
-@import "./layout/header";
+@use "./components/button";
+@use "./components/toggle";
 
-@import "./pages/home";
+@use "./layout";
