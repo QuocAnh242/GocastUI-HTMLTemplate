@@ -1,9 +1,9 @@
 -
   var menu1 = [
-    {text: "Home", icon: "icon-home", href: "/"},
-    {text: "Trending", icon: "icon-chart", href: "/trending.html"},
+    {text: "Home", icon: "icon-home", href: "./index.html"},
+    {text: "Trending", icon: "icon-chart", href: "./trending.html"},
     {text: "Explore Topics", icon: "icon-cube"},
-    {text: "Playlist", icon: "icon-play", href: "/playlist.html"},
+    {text: "Playlist", icon: "icon-play", href: "./playlist.html"},
     {text: "Subscriptions", icon: "icon-subscription"}
   ];
   var menu2 = [
@@ -19,7 +19,7 @@
 - var currentActive = activeMenu || 'Home'
 aside.sidebar
   .sidebar-header
-    a.logo(href="/")
+    a.logo(href="./index.html")
       include ../icons/_logo
     button.sidebar-close(type="button" aria-label="Close sidebar")
       svg(width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round")
