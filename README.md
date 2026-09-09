@@ -1,160 +1,169 @@
-# 🎙️ GoCast UI - Modern Podcast Web Dashboard
-
-<div align="center">
+# GoCast UI - Modern Podcast Web Dashboard
 
 [![CI/CD Pipeline](https://github.com/QuocAnh242/GocastUI/actions/workflows/deploy.yml/badge.svg)](https://github.com/QuocAnh242/GocastUI/actions/workflows/deploy.yml)
 [![GitHub Pages](https://img.shields.io/badge/Live_Demo-GitHub_Pages-6C5DD3?style=flat&logo=github)](https://quocanh242.github.io/GocastUI/)
 [![License: ISC](https://img.shields.io/badge/License-ISC-blue.svg)](LICENSE)
-[![Author](https://img.shields.io/badge/Author-QuocAnh242-7141EF)](https://github.com/QuocAnh242)
 
-**Một giao diện Dashboard Podcast Web hiện đại, responsive mượt mà và hỗ trợ chuyển đổi Light / Dark Theme.**
+A modern, responsive podcast dashboard web application built with **Pug (Jade)**, **Sass / SCSS (7-1 pattern)**, and **Vanilla JavaScript**.
 
-[🌐 Xem Live Demo](https://quocanh242.github.io/GocastUI/) · [🐞 Báo lỗi](https://github.com/QuocAnh242/GocastUI/issues) · [✨ Đóng góp](https://github.com/QuocAnh242/GocastUI/pulls)
-
-</div>
+[Live Demo](https://quocanh242.github.io/GocastUI/) · [Report Bug](https://github.com/QuocAnh242/GocastUI/issues) · [Request Feature](https://github.com/QuocAnh242/GocastUI/issues)
 
 ---
 
-## 📖 Giới thiệu (Overview)
+## Overview
 
-**GoCast UI** là dự án giao diện ứng dụng web Podcast Dashboard được xây dựng với kiến trúc module hóa chuyên nghiệp sử dụng **Pug (Jade)** và **Sass / SCSS (mô hình 7-1)** kết hợp cùng **Vanilla JavaScript**.
+**GoCast UI** is a front-end dashboard application designed for podcast creators and listeners. The codebase follows a modular structure inspired by the Sass 7-1 architecture and Pug template engine best practices, ensuring scalability, maintainability, and clean code standards.
 
-Giao diện được trau chuốt tỉ mỉ từng chi tiết theo xu hướng thiết kế web hiện đại, từ hiệu ứng chuyển động, màu sắc, thanh sóng âm thanh (Audio Waveform) cho đến trải nghiệm người dùng trên cả máy tính và thiết bị di động.
-
----
-
-## ✨ Tính năng nổi bật (Key Features)
-
-- 🌓 **Light / Dark Mode:**
-  - Mặc định là **Light Theme** trắng sáng tinh tế.
-  - Chuyển đổi sang **Dark Mode** với 1 cú click vào avatar profile.
-  - Tự động lưu lựa chọn vào `localStorage` (`gocast_theme`), tải lại trang không bị mất theme.
-- 📱 **Fully Responsive (100% thích ứng mọi thiết bị):**
-  - **Desktop (>= 1280px):** Layout 2 cột với sidebar cố định và topbar đầy đủ tiện ích.
-  - **Tablet & Mobile (< 1280px):**
-    - Sidebar tự động chuyển thành **Off-canvas Drawer** trượt mượt mà từ cạnh trái với nút đóng và lớp phủ mờ (Backdrop).
-    - Thanh điều hướng cố định dưới đáy màn hình (**Bottom Navigation Bar**) chuẩn phong cách ứng dụng native.
-- 📄 **Hỗ trợ đa trang (Multi-Page):**
-  - 🏠 **Home Page (`index.html`):** Khám phá host nổi bật, podcast thịnh hành, feed nghe lại, gợi ý theo dõi và chủ đề hot.
-  - 🔥 **Trending Page (`trending.html`):** Banner 3 thẻ podcast carousel nổi bật, filter tabs (`All`, `Shows`, `Episodes`), lưới 6 tập podcast kèm **thanh sóng âm (waveform)** và trình phát audio.
-  - 🎵 **Playlist Page (`playlist.html`):** Quản lý danh sách podcast, tập phát và lượt yêu thích.
-- 🎨 **Hiệu ứng & Trải nghiệm cao cấp:**
-  - Sidebar với trạng thái **Active pill gradient** đặc trưng và hiệu ứng hover trượt nhẹ `translateX`.
-  - Icon huy chương Leaderboard giữ nguyên màu sắc rực rỡ ở cả 2 theme.
-  - Thanh tìm kiếm có hiệu ứng glow tím khi nhập liệu.
-  - Nút Play/Pause, thời lượng, nút Share và thả tim nổi bật.
-- 🤖 **Tự động hóa CI/CD:**
-  - Tích hợp **GitHub Actions** tự động build Pug và SCSS, sau đó tự động deploy lên **GitHub Pages** mỗi khi push code lên nhánh `main`.
+The application features custom-crafted components, interactive audio player waveforms, seamless dark and light mode switching, and a mobile-first responsive layout.
 
 ---
 
-## 🛠️ Công nghệ sử dụng (Tech Stack)
+## Key Features
 
-| Công nghệ | Mục đích |
+- **Light and Dark Theme Switcher:**
+  - Defaults to a crisp Light Theme.
+  - One-click toggle in the user profile dropdown to switch to Dark Mode.
+  - State persisted across sessions using `localStorage` (`gocast_theme`).
+
+- **Fully Responsive Design:**
+  - **Desktop (>= 1280px):** Two-column layout with a fixed sidebar and comprehensive top navigation bar.
+  - **Tablet and Mobile (< 1280px):** Sidebar transforms into a smooth off-canvas drawer with an interactive backdrop overlay, complemented by a fixed native-style bottom navigation bar.
+
+- **Multi-Page Architecture:**
+  - **Home (`index.html`):** Popular hosts showcase, trending banner, playback feed, suggested follows, listening history, and topics grid.
+  - **Trending (`trending.html`):** Featured 3-card podcast carousel, category filter tabs (`All`, `Shows`, `Episodes`), and an episode grid with interactive audio waveforms and player controls.
+  - **Playlist (`playlist.html`):** Podcast management interface with episode counts, release dates, and like metrics.
+
+- **Refined UI and Micro-interactions:**
+  - Signature gradient pill for the active route with subtle glow shadow.
+  - Smooth hover transitions and translations on sidebar navigation items.
+  - Multi-colored medal graphics preserved across both light and dark themes.
+  - Glow focus states on search inputs and interactive action buttons.
+
+- **Automated CI/CD Pipeline:**
+  - Built-in GitHub Actions workflow to compile Sass, render Pug templates, and deploy production artifacts to GitHub Pages on every push to `main`.
+
+---
+
+## Tech Stack
+
+| Technology | Role |
 | :--- | :--- |
-| **HTML5 / Pug (Jade)** | Template engine module hóa, mixins tái sử dụng, code gọn gàng |
-| **CSS3 / Sass (SCSS)** | Kiến trúc SCSS 7-1, CSS Custom Properties (Variables), Flexbox, CSS Grid |
-| **Vanilla JavaScript (ES6+)** | Logic theme toggle, profile dropdown, drawer mobile sidebar |
-| **GitHub Actions** | Tự động hóa quy trình CI/CD build & deploy |
-| **GitHub Pages** | Lưu trữ và phân phối website trực tiếp |
+| **Pug (Jade)** | Modular template engine, reusable mixins, and component partials |
+| **Sass / SCSS** | 7-1 CSS architecture, CSS custom properties, Flexbox, and CSS Grid |
+| **Vanilla JavaScript (ES6+)** | Theme switching, profile dropdown toggle, and mobile drawer controller |
+| **GitHub Actions** | Automated Continuous Integration & Continuous Deployment pipeline |
+| **GitHub Pages** | Static hosting and continuous delivery |
 
 ---
 
-## 📁 Cấu trúc thư mục (Project Structure)
+## Project Structure
 
 ```text
 GocastUI/
 ├── .github/
 │   └── workflows/
-│       └── deploy.yml        # Workflow CI/CD tự động build & deploy
-├── images/                   # Hình ảnh & icon SVG
-├── sass/                     # Kiến trúc SCSS 7-1
-│   ├── abstracts/            # Biến màu, mixins, functions
-│   ├── base/                 # Reset, typography, general styles
-│   ├── components/           # Button, toggle, card...
-│   ├── layout/               # Sidebar, topbar, navigation, structure
-│   ├── pages/                # Style chi tiết cho Home, Trending...
-│   ├── themes/               # Cấu hình biến màu Dark / Light theme
-│   ├── vendors/              # Cheatsheet & vendor overrides
-│   ├── home.scss             # Stylesheet trang Home
-│   ├── main.scss             # Stylesheet dùng chung toàn trang
-│   ├── playlist.scss         # Stylesheet trang Playlist
-│   └── trending.scss         # Stylesheet trang Trending
+│       └── deploy.yml        # CI/CD automated build and deployment workflow
+├── images/                   # Visual assets and SVG icons
+├── sass/                     # Sass 7-1 architectural pattern
+│   ├── abstracts/            # Variables, mixins, and helper functions
+│   ├── base/                 # Reset, typography, and base elements
+│   ├── components/           # Buttons, toggle switches, and card components
+│   ├── layout/               # Sidebar, topbar, navigation, and structure
+│   ├── pages/                # Page-specific styles (Home, Trending)
+│   ├── themes/               # CSS variables for Dark and Light themes
+│   ├── vendors/              # Third-party overrides and specificity references
+│   ├── home.scss             # Stylesheet for Home page
+│   ├── main.scss             # Global stylesheet
+│   ├── playlist.scss         # Stylesheet for Playlist page
+│   └── trending.scss         # Stylesheet for Trending page
 ├── scripts/
-│   └── main.js               # Logic điều khiển Theme, Dropdown & Mobile Drawer
+│   └── main.js               # Application logic (Theme, dropdown, mobile drawer)
 ├── views/
-│   ├── icons/                # Các icon SVG dạng Pug
-│   ├── layout/               # Template khung Dashboard, Sidebar, Topbar, Navigation
-│   ├── mixins/               # Các mixin tái sử dụng (menuItem, trendingEpisodeCard...)
-│   └── modules/              # Các khối nội dung của từng trang (home, trending...)
-├── index.pug                 # Mã nguồn trang chủ
-├── playlist.pug              # Mã nguồn trang Playlist
-├── trending.pug              # Mã nguồn trang Trending
-├── package.json              # Khai báo dependencies & build scripts
-└── README.md                 # Tài liệu hướng dẫn dự án
+│   ├── icons/                # Pug SVG icon components
+│   ├── layout/               # Master layouts (Dashboard, Topbar, Sidebar, Navigation)
+│   ├── mixins/               # Reusable mixins (menuItem, trendingEpisodeCard, etc.)
+│   └── modules/              # Sub-components for Home and Trending pages
+├── index.pug                 # Home page template
+├── playlist.pug              # Playlist page template
+├── trending.pug              # Trending page template
+├── package.json              # Project scripts and dependencies
+└── README.md                 # Project documentation
 ```
 
 ---
 
-## 🚀 Hướng dẫn cài đặt & Chạy cục bộ (Getting Started)
+## Getting Started
 
-### Yêu cầu môi trường:
-* [Node.js](https://nodejs.org/) (phiên bản 18 trở lên)
-* Trình quản lý gói `npm`
+### Prerequisites
 
-### 1. Sao chép dự án về máy
+- [Node.js](https://nodejs.org/) (version 18 or later)
+- `npm` package manager
+
+### 1. Clone the repository
+
 ```bash
 git clone https://github.com/QuocAnh242/GocastUI.git
 cd GocastUI
 ```
 
-### 2. Cài đặt các gói phụ thuộc
+### 2. Install dependencies
+
 ```bash
 npm install
 ```
 
-### 3. Khởi chạy chế độ phát triển (Development)
-Mở 2 cửa sổ terminal:
+### 3. Development Mode
 
-* **Terminal 1 - Tự động compile SCSS khi lưu:**
+Run the watchers in two separate terminal windows:
+
+- **Terminal 1: Watch and compile Sass:**
   ```bash
   npm run sass
   ```
 
-* **Terminal 2 - Tự động compile tất cả các file Pug sang HTML khi lưu:**
+- **Terminal 2: Watch and compile Pug templates:**
   ```bash
   npm run pug
   ```
 
-Mở file `index.html`, `trending.html` hoặc `playlist.html` trên trình duyệt bằng Live Server (hoặc mở trực tiếp) để trải nghiệm.
+Open `index.html`, `trending.html`, or `playlist.html` in your browser to view the application.
 
-### 4. Build phiên bản phát hành (Production Build)
+### 4. Production Build
+
+To build all SCSS stylesheets and Pug templates once:
+
 ```bash
 npm run build
 ```
-Lệnh này sẽ tự động compile sạch sẽ toàn bộ SCSS và Pug mà không cần chạy lệnh thủ công.
 
 ---
 
-## 🔄 Tự động hóa CI/CD với GitHub Actions
+## CI/CD Pipeline & Deployment
 
-Dự án đã được tích hợp sẵn file cấu hình CI/CD tại [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml):
+The repository includes a ready-to-use GitHub Actions workflow configured in [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml).
 
-1. **Mỗi khi push code lên nhánh `main`:**
-   * GitHub Actions sẽ tự động khởi tạo môi trường Node.js.
-   * Chạy lệnh `npm ci` và `npm run build` để kiểm tra lỗi cú pháp và render mã nguồn.
-   * Thu thập toàn bộ artifact thành phẩm vào thư mục `dist/`.
-   * Tự động đẩy lên nhánh `gh-pages` và xuất bản website trực tiếp lên **GitHub Pages**.
-2. **Kích hoạt GitHub Pages trên repository của bạn:**
-   * Vào **Settings** của repository trên GitHub.
-   * Chọn mục **Pages** ở cột bên trái.
-   * Tại phần **Build and deployment > Branch**, chọn nhánh `gh-pages` và thư mục `/ (root)`, sau đó bấm **Save**.
-   * Website sẽ sẵn sàng tại địa chỉ: `https://quocanh242.github.io/GocastUI/`
+### Workflow Process
+
+1. **Trigger:** Fires on every `push` to the `main` branch (and validates builds on pull requests).
+2. **Environment:** Runs on an `ubuntu-latest` runner with Node.js 20.
+3. **Build:** Runs `npm ci` and `npm run build` to compile SCSS and Pug templates.
+4. **Artifact Collection:** Gathers HTML, styles, images, and scripts into a clean `dist/` directory with a `.nojekyll` file.
+5. **Deployment:** Publishes the `dist/` bundle directly to the `gh-pages` branch using GitHub Actions.
+
+### Enabling GitHub Pages
+
+1. Navigate to your repository settings on GitHub (**Settings > Pages**).
+2. Under **Build and deployment > Branch**, select `gh-pages` and root folder `/(root)`.
+3. Click **Save**.
+4. The site will be live at: `https://quocanh242.github.io/GocastUI/`
 
 ---
 
-## 👨‍💻 Tác giả (Author)
+## License
 
-* **Quoc Anh** - [QuocAnh242](https://github.com/QuocAnh242)
+This project is licensed under the [ISC License](LICENSE).
 
-Nếu dự án này hữu ích với bạn, đừng quên bấm **⭐️ Star** để ủng hộ repository nhé!
+## Author
+
+- **Quoc Anh** - [@QuocAnh242](https://github.com/QuocAnh242)
