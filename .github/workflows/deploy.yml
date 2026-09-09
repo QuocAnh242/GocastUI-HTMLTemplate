@@ -1,0 +1,51 @@
+name: CI/CD - Build & Deploy GoCast UI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 🚀 Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: 🟢 Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: "npm"
+
+      - name: 📦 Install Dependencies
+        run: npm ci
+
+      - name: 🔨 Compile Sass & Pug
+        run: npm run build
+
+      - name: 📂 Prepare Production Artifacts
+        run: |
+          mkdir -p dist
+          cp -f *.html dist/
+          cp -rf styles dist/
+          cp -rf images dist/
+          cp -rf scripts dist/
+          touch dist/.nojekyll
+
+      - name: 🚀 Deploy to GitHub Pages
+        if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
+          publish_branch: gh-pages
+          commit_message: "deploy: Build and deploy GoCast UI to GitHub Pages [skip ci]"

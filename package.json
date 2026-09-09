@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "pug": "pug -w ./*.pug -o ./ -P -b views",
-    "sass": "sass --watch sass:styles"
+    "sass": "sass --watch sass:styles",
+    "build": "sass sass:styles && pug ./*.pug -o ./ -P -b views"
   },
   "repository": {
     "type": "git",
