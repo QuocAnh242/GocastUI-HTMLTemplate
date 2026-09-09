@@ -1,0 +1,64 @@
+@use "../../abstracts" as abstracts;
+
+.host {
+  padding-bottom: 28px;
+  &-heading {
+    --mb: 20px;
+  }
+  &-list {
+    --gap: 12px;
+    @include abstracts.flexBox(flex-start, space-between, var(--gap), null);
+  }
+  &-item {
+    --gap: 6px;
+    --avatar-size: 44px;
+    @include abstracts.flexBox(center, null, var(--gap), column);
+    @include abstracts.screenMinWidth(768px) {
+      --gap: 7px;
+      --avatar-size: 64px;
+    }
+  }
+  &-avatar {
+    @include abstracts.size(var(--avatar-size));
+    @include abstracts.rounded("rounded-full");
+    @include abstracts.flexBox(flex-end, center);
+    overflow: hidden;
+    position: relative;
+    background-color: var(--color);
+    box-shadow:
+      0 0 0 2px var(--bg-body-color),
+      0 0 0 3px var(--color);
+    img {
+      position: relative;
+      z-index: 2;
+    }
+  }
+  &-name {
+    font-size: 14px;
+  }
+  @media screen and (max-width: 767.98px) {
+    padding-bottom: 0;
+  }
+  @container mainContainer (max-width: 420px) {
+    &-heading {
+      --mb: 12px;
+    }
+    &-list {
+      display: grid;
+      grid-auto-columns: 55px;
+      grid-auto-flow: column;
+      overflow-x: auto;
+      overflow-y: hidden;
+      scroll-snap-type: x mandatory;
+      scroll-snap-stop: always;
+      padding: 10px 0;
+      &::-webkit-scrollbar {
+        display: none;
+        width: 0;
+      }
+      & > * {
+        scroll-snap-align: start;
+      }
+    }
+  }
+}

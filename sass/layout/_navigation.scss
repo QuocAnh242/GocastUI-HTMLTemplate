@@ -1,0 +1,56 @@
+@use "../abstracts" as abstracts;
+
+.navigation {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px 16px;
+  background-color: var(--navigation-bg, white);
+  border-top: 1px solid var(--sidebar-line, #{abstracts.$gray-1});
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  transition: background-color 0.25s ease, border-color 0.25s ease;
+
+  &-item {
+    width: 44px;
+    height: 44px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px;
+    color: var(--icon-accent, #8494ab);
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    svg path {
+      transition: fill 0.2s ease;
+    }
+
+    &:hover {
+      background-color: var(--topbar-action-hover-bg, rgba(108, 93, 211, 0.08));
+      color: abstracts.$primary-color;
+
+      svg path {
+        fill: abstracts.$primary-color;
+      }
+    }
+  }
+
+  &-upload {
+    border-radius: 100rem;
+    background: abstracts.$gradient;
+    box-shadow: 0 4px 14px rgba(108, 93, 211, 0.35);
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(108, 93, 211, 0.5);
+    }
+  }
+
+  @media screen and (min-width: 1280px) {
+    display: none;
+  }
+}

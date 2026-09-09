@@ -16,17 +16,23 @@
     {text: "Leaderboard", icon: "icon-medal"},
   ];
 
+- var currentActive = activeMenu || 'Home'
 aside.sidebar
-  a.logo(href="/")
-    include ../icons/_logo
+  .sidebar-header
+    a.logo(href="/")
+      include ../icons/_logo
+    button.sidebar-close(type="button" aria-label="Close sidebar")
+      svg(width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round")
+        line(x1="18" y1="6" x2="6" y2="18")
+        line(x1="6" y1="6" x2="18" y2="18")
   ul.menu
     each item in menu1
-      +menuItem(item.text, item.icon, item.href)
+      +menuItem(item.text, item.icon, item.href, currentActive === item.text)
   ul.menu
     h3.menu-heading Podcasters
     each item in menu2
-      +menuItem(item.text, item.icon, item.href)
+      +menuItem(item.text, item.icon, item.href, currentActive === item.text)
   ul.menu
     h3.menu-heading Community
     each item in menu3
-      +menuItem(item.text, item.icon, item.href)
+      +menuItem(item.text, item.icon, item.href, currentActive === item.text)

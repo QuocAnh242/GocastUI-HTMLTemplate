@@ -1,0 +1,28 @@
+@use "../abstracts" as abstracts;
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--gap, 10px);
+  padding: var(--p, 0 20px);
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  line-height: 1;
+  transition: all 0.25s ease;
+
+  &--primary {
+    background-color: abstracts.$primary-color;
+    color: white;
+
+    &:hover {
+      box-shadow: 0 8px 16px rgba(108, 93, 211, 0.35);
+      opacity: 0.95;
+      transform: translateY(-1px);
+    }
+  }
+}

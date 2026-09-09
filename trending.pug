@@ -1,0 +1,10 @@
+extends ./views/layout/_dashboard
+append stylesheet
+  link(rel="stylesheet", href="./styles/trending.css")
+block title
+  title GocastUI - Trending
+  - var activeMenu = 'Trending'
+block main
+  .trending-page
+    include ./views/modules/trending/_trending-slider
+    include ./views/modules/trending/_trending-episodes

@@ -1,6 +1,6 @@
-mixin menuItem(text, icon = '', href = "#")
+mixin menuItem(text, icon = '', href = "#", active = false)
   li.menu-item
-    a.menu-link(href= href)
+    a.menu-link(href= href, class= active ? 'is-active' : '')
       span.menu-icon
         if icon
           case icon
@@ -25,3 +25,171 @@ mixin menuItem(text, icon = '', href = "#")
             when 'icon-medal'
               include ../icons/_icon-medal
       span.menu-text= text
+
+mixin toggle()
+  label.toggle
+    input(type="checkbox", name="")
+    .toggle-main
+      .toggle-spinner
+
+mixin button(icon = false, title = "Play Episode")
+  button.button.button--primary
+    if icon
+      include ../icons/_icon-play
+    span= title
+
+mixin feedItem
+  .feed-item
+    .feed-item-header
+      .feed-author
+        .feed-author-avatar
+          img(src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1452&q=80", alt="")
+          span.feed-author-verify
+            include ../icons/_icon-verify
+        .feed-author-content
+          .feed-author-header
+            h4.feed-author-name James Killened
+            .feed-author-rating
+              span rated an episude
+              img(srcset="./images/img-rating.png 2x", alt="")
+          .feed-date Jun 25th
+      span
+        include ../icons/_icon-more
+    .feed-item-main
+      .feed-image
+        img(src="https://images.unsplash.com/photo-1616588589676-62b3bd4ff6d2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2064&q=80", alt="")
+      .feed-item-content
+        p.feed-item-podcast Perspective Podcast (Ep. 1)
+        h3.feed-item-heading Philosophy vs Religion vs Science: Yahia Amin and Sadman Sadik
+        p.feed-item-desc Play Philosophy vs Religion vs Science: Perspective Podcast (Ep. 1) | Yahia Amin and Sadman Sadik by PERSPECTIVE with Yahia Amin on desktop and mobile. Play over 265 million tracks for...
+    .feed-item-footer
+      .feed-actions
+        button
+          include ../icons/_icon-heart
+        button
+          include ../icons/_icon-star
+        button
+          include ../icons/_icon-playlist
+      +button(true)
+
+mixin widgetHeader( title = "", url = "#" )
+  .widget-header
+    h3.widget-heading= title
+    a.widget-view-all(href= url) View all
+
+mixin followItem
+  .follow
+    .follow-user
+      .follow-user-avatar
+        img(src="https://images.unsplash.com/photo-1564564321837-a57b7070ac4f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1476&q=80", alt="")
+      .follow-user-info
+        h4.follow-user-name Yahia Amin
+        p.follow-user-username @yahiamdamin
+    .follow-action
+      +button(false, "Follow")
+
+mixin listenItem
+  .listen
+    .listen-image
+      img(src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1452&q=80", alt="")
+    .listen-info
+      h4.listen-title Don't Always Win | LifeSpring
+      .listen-meta
+        .listen-meta-item
+          include ../icons/_icon-play2
+          span 156
+        .listen-meta-item
+          include ../icons/_icon-play2
+          span 156
+
+mixin topicItem(title = "👫 Society & Culture", podcast = "761k podcast", image = "https://images.unsplash.com/photo-1514565131-fce0801e5785?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80")
+  .topic
+    img.topic-image(src= image, alt= title)
+    .topic-content
+      h4.topic-title= title
+      .topic-podcast= podcast
+
+      
+mixin playlistItem
+  .playlist-item
+    .playlist-image
+      img(src="https://images.unsplash.com/photo-1490598000245-075175152d25?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3270&q=80")
+    .playlist-content
+      .playlist-top
+        h3.playlist-title Business Development Business Development
+        span.playlist-date Created on 1 day ago
+      .playlist-desc UIHUT is a design and coding resources platform for designers, developers, and entrepreneurs.
+      .playlist-bottom
+        .playlist-episodes
+          each val in [1,2,3,4]
+            img.playlist-episode-image.playlist-episode-item(src="https://images.unsplash.com/Ys-DBJeX0nE.JPG?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3270&q=80")
+          .playlist-episode-number.playlist-episode-item 41+
+        .playlist-likes
+          include ../icons/_icon-heart-fill
+          span.playlist-likes-count 1.5k
+
+mixin trendingEpisodeCard(data)
+  .trending-card
+    .trending-card-thumb
+      img(src= data.image, alt= data.title)
+    .trending-card-content
+      .trending-card-header
+        .trending-card-info
+          h4.trending-card-title= data.title
+          p.trending-card-podcast= data.podcast
+          .trending-card-meta
+            span.trending-card-meta-item
+              span.meta-dot.meta-dot--orange
+              span= data.played
+            span.trending-card-meta-item
+              span.meta-dot.meta-dot--red
+              span= data.time
+        button.trending-card-more(type="button" aria-label="More options")
+          include ../icons/_icon-more
+      .trending-card-author
+        img.trending-card-avatar(src= data.authorAvatar, alt= data.authorName)
+        .trending-card-author-info
+          h5.trending-card-author-name= data.authorName
+          p.trending-card-author-user= data.authorUsername
+      .trending-card-player
+        button.trending-player-btn(type="button" class= data.isPlaying ? 'is-playing' : '' aria-label="Play or pause episode")
+          if data.isPlaying
+            svg(width="10" height="12" viewBox="0 0 10 12" fill="none")
+              rect(width="3" height="12" rx="1.5" fill="white")
+              rect(x="7" width="3" height="12" rx="1.5" fill="white")
+          else
+            svg(width="10" height="12" viewBox="0 0 10 12" fill="none")
+              path(d="M9.33333 4.8453C10.2222 5.35855 10.2222 6.64145 9.33333 7.1547L2.22222 11.2605C1.33333 11.7737 0.222222 11.1323 0.222222 10.1058L0.222223 1.89419C0.222223 0.867691 1.33333 0.22624 2.22222 0.739491L9.33333 4.8453Z" fill="white")
+        .trending-player-waveform
+          span.wave-bar(style="--h: 30%")
+          span.wave-bar(style="--h: 60%")
+          span.wave-bar(style="--h: 40%")
+          span.wave-bar(style="--h: 85%")
+          span.wave-bar(style="--h: 55%")
+          span.wave-bar(style="--h: 95%")
+          span.wave-bar(style="--h: 70%")
+          span.wave-bar(style="--h: 45%")
+          span.wave-bar(style="--h: 90%")
+          span.wave-bar(style="--h: 65%")
+          span.wave-bar(style="--h: 100%")
+          span.wave-bar(style="--h: 75%")
+          span.wave-bar(style="--h: 50%")
+          span.wave-bar(style="--h: 80%")
+          span.wave-bar(style="--h: 35%")
+          span.wave-bar(style="--h: 90%")
+          span.wave-bar(style="--h: 60%")
+          span.wave-bar(style="--h: 40%")
+          span.wave-bar(style="--h: 70%")
+          span.wave-bar(style="--h: 25%")
+        span.trending-player-time= data.duration || "5:59"
+        .trending-player-actions
+          button.trending-player-action(type="button" aria-label="Share episode")
+            svg(width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round")
+              circle(cx="18" cy="5" r="3")
+              circle(cx="6" cy="12" r="3")
+              circle(cx="18" cy="19" r="3")
+              line(x1="8.59" y1="13.51" x2="15.42" y2="17.49")
+              line(x1="15.41" y1="6.51" x2="8.59" y2="10.49")
+          button.trending-player-action.trending-player-heart(type="button" aria-label="Like episode")
+            svg(width="18" height="18" viewBox="0 0 24 24" fill="#FF754C")
+              path(d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z")

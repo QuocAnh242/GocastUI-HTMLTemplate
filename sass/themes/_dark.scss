@@ -1,0 +1,140 @@
+:root {
+  --bg-body-color: white;
+  --sidebar-line: #e9eef4;
+  --search-bg: #f0f3f6;
+  --menu-text: #8494ab;
+  --menu-heading: #8494ab;
+  --global-text: #1b1d21;
+  --trending-bg: #f8f8f8;
+  --host-name: #5f6164;
+  --bg-dropdown: white;
+  --dropdown-border: #f0f3f6;
+  --dropdown-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+
+  --logo-color: #1b1d21;
+  --icon-base: #e4e9f0;
+  --icon-accent: #8494ab;
+  --menu-hover-bg: rgba(108, 93, 211, 0.08);
+  --menu-hover-color: #6c5dd3;
+  --menu-hover-icon: #6c5dd3;
+  --menu-hover-icon-base: rgba(108, 93, 211, 0.25);
+  --topbar-action-bg: transparent;
+  --topbar-action-hover-bg: #f0f3f6;
+  --topbar-action-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+
+  --trending-podcast: #676a6f;
+  --trending-author: #1b1d21;
+  --feed-border: #f0f3f6;
+  --toggle-text: #676a6f;
+  --icon-path: #8494ab;
+  --navigation-bg: white;
+  --navigation-border: #e9eef4;
+  --playlist-bg: white;
+  --playlist-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  --playlist-title: #1b1d21;
+  --playlist-date: #8494ab;
+  --playlist-episode-border: #f0f3f6;
+  --playlist-episode-number: #8494ab;
+
+  --trending-card-bg: white;
+  --trending-card-border: #f0f3f6;
+  --trending-card-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+  --trending-tab-bg: #f0f3f6;
+  --trending-tab-color: #8494ab;
+  --trending-meta-text: #a6a7b2;
+  --waveform-bar: #e2e8f0;
+}
+
+body {
+  color: var(--global-text);
+}
+
+body,
+.wrapper,
+.sidebar,
+.topbar {
+  background-color: var(--bg-body-color);
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+.sidebar {
+  border-right: 1px solid var(--sidebar-line);
+  transition: border-color 0.25s ease;
+}
+
+.menu {
+  &-link {
+    color: var(--menu-text);
+  }
+  &:not(:last-child):after {
+    background-color: var(--sidebar-line);
+  }
+}
+
+.search {
+  background-color: var(--search-bg);
+  transition: background-color 0.25s ease;
+}
+
+.trending {
+  &-banner {
+    background-color: var(--trending-bg);
+    transition: background-color 0.25s ease;
+  }
+}
+
+.host {
+  &-name {
+    color: var(--host-name);
+  }
+}
+
+html.dark,
+[data-theme="dark"] {
+  --bg-body-color: #242731;
+  --sidebar-line: #373a43;
+  --search-bg: #373a43;
+  --menu-text: #ffffff;
+  --menu-heading: #a6a7b2;
+  --global-text: white;
+  --trending-bg: #050f16;
+  --host-name: #e4e4e4;
+  --bg-dropdown: #242731;
+  --dropdown-border: #373a43;
+  --dropdown-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+
+  --logo-color: white;
+  --icon-base: #373a43;
+  --icon-accent: #e4e4e4;
+  --menu-hover-bg: rgba(255, 255, 255, 0.1);
+  --menu-hover-color: #ffffff;
+  --menu-hover-icon: #ffffff;
+  --menu-hover-icon-base: rgba(255, 255, 255, 0.3);
+  --topbar-action-bg: transparent;
+  --topbar-action-hover-bg: rgba(255, 255, 255, 0.1);
+  --topbar-action-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+
+  --trending-podcast: #a6a7b2;
+  --trending-author: white;
+  --feed-border: #373a43;
+  --toggle-text: white;
+  --icon-path: #676a6f;
+  --navigation-bg: #242731;
+  --navigation-border: #373a43;
+  --playlist-bg: #242731;
+  --playlist-shadow:
+    -10px 24px 35px 0px rgba(8, 8, 9, 0.25),
+    -1px -3px 14px 0px rgba(15, 20, 39, 0.2);
+  --playlist-title: white;
+  --playlist-date: #a6a7b2;
+  --playlist-episode-border: #242731;
+  --playlist-episode-number: #373a43;
+
+  --trending-card-bg: #242731;
+  --trending-card-border: #373a43;
+  --trending-card-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  --trending-tab-bg: #373a43;
+  --trending-tab-color: #ffffff;
+  --trending-meta-text: #a6a7b2;
+  --waveform-bar: #373a43;
+}

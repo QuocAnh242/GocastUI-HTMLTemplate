@@ -1,0 +1,32 @@
+.topbar
+  a.topbar-logo(href="/")
+    include ../icons/_logo
+  .search
+    img(src="./images/icons/icon-search.svg", alt="search").search-icon
+    input.search-input(type="text" placeholder="Search 2+ million podcasts and listeners")
+  .topbar-right
+    button.button.button--primary.button-upload
+      img(src="./images/icons/icon-upload.svg", alt="upload")
+      span Upload
+    a(href="#").topbar-action
+      img(src="./images/icons/icon-message.svg", alt="message")
+    a(href="#").topbar-action
+      img(src="./images/icons/icon-noti.svg", alt="noti")
+    .profile-wrapper
+      a(href="javascript:void(0);").profile
+        img(src="https://avatars.githubusercontent.com/u/161692516?v=4", alt="profile")
+      .profile-dropdown
+        .profile-dropdown-user
+          img.profile-dropdown-avatar(src="https://avatars.githubusercontent.com/u/161692516?v=4", alt="avatar")
+          .profile-dropdown-info
+            h4.profile-dropdown-name Quoc Anh
+            p.profile-dropdown-email @quocanh242
+        .profile-dropdown-divider
+        .profile-dropdown-theme
+          .profile-dropdown-theme-left
+            span.profile-dropdown-theme-icon 🌙
+            span.profile-dropdown-theme-text Dark Theme
+          label.toggle
+            input#theme-toggle(type="checkbox")
+            .toggle-main
+              .toggle-spinner

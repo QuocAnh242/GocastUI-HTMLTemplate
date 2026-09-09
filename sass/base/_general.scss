@@ -1,0 +1,27 @@
+@use "../abstracts" as abstracts;
+
+.heading {
+  --mb: 0;
+  font-size: 16px;
+  line-height: 1.5;
+  @include abstracts.fw("semibold");
+  margin-bottom: var(--mb);
+}
+
+.widget {
+  margin-bottom: 40px;
+  &-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  &-heading {
+    font-size: 16px;
+    font-weight: 600;
+  }
+  &-view-all {
+    font-size: 13px;
+    color: abstracts.$gray-3;
+  }
+}
